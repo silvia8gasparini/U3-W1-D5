@@ -10,10 +10,10 @@ const Footer = () => {
           <Col xs={12} md={10}>
             <Row className="mb-3">
               <Col>
-                <Facebook className="me-2" />
-                <Instagram className="me-2" />
-                <TwitterX className="me-2" />
-                <Youtube />
+                <Facebook className="me-2" color="#838383" />
+                <Instagram className="me-2" color="#838383" />
+                <TwitterX className="me-2" color="#838383" />
+                <Youtube color="#838383" />
               </Col>
             </Row>
             <Row className="row-cols-1 row-cols-sm-2 row-cols-md-4">

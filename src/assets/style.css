@@ -9,7 +9,6 @@ html, body {
     font-weight: bold;
   }
   
-
 .poster-wrapper {
     position: relative;
     overflow: hidden;
@@ -29,4 +28,3 @@ html, body {
     transform: scale(1.08);
     z-index: 1;
   }
-
