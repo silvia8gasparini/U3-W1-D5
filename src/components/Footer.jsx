@@ -104,7 +104,7 @@ const Footer = () => {
             </Row>
             <Row>
               <Col className="my-2 pb-4 text-secondary">
-                © 1997-2023 Netflix, Inc.
+                © 1997-2025 Netflix, Inc.
               </Col>
             </Row>
           </Col>

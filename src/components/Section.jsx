@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Container, Carousel, Spinner, Row, Col, Card } from "react-bootstrap";
+import Error from "./Error";
 import "../assets/style.css";
 
 const Section = ({ title, query }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(
       `https://www.omdbapi.com/?apikey=38c14aa1&s=${encodeURIComponent(query)}`
     )
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
         if (data.Response === "True") {
           setMovies(data.Search);
@@ -20,7 +22,8 @@ const Section = ({ title, query }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching movies:", error);
+        console.error("Errore caricamento film:", error);
+        setError(true);
         setLoading(false);
       });
   }, [query]);
@@ -52,6 +55,8 @@ const Section = ({ title, query }) => {
           <div className="text-center text-light my-5">
             <Spinner animation="border" variant="light" /> Loading...
           </div>
+        ) : error ? (
+          <Error message={`Impossibile caricare "${title}"`} />
         ) : (
           <Carousel
             controls={true}

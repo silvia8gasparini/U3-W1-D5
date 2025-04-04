@@ -4,6 +4,12 @@ html, body {
     width: 100%;
   }
 
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    font-weight: bold;
+  }
+  
+
 .poster-wrapper {
     position: relative;
     overflow: hidden;

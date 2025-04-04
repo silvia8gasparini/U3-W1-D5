@@ -7,11 +7,10 @@ import {
   Form,
   FormControl,
 } from "react-bootstrap";
-import { Search, BellFill } from "react-bootstrap-icons";
+import { Search, BellFill, Grid, Grid3x3 } from "react-bootstrap-icons";
 
-const Header = () => {
+const Header = ({ searchQuery, setSearchQuery }) => {
   const [showSearch, setShowSearch] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchToggle = () => {
     setShowSearch(!showSearch);
@@ -19,8 +18,6 @@ const Header = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const event = new CustomEvent("searchMovies", { detail: searchQuery });
-    window.dispatchEvent(event);
   };
 
   return (
@@ -40,7 +37,7 @@ const Header = () => {
               <Nav.Link href="#" className="text-light">
                 Home
               </Nav.Link>
-              <Nav.Link href="#tv-shows" className="fw-bold text-light">
+              <Nav.Link href="#tv-shows" className="text-light">
                 TV Shows
               </Nav.Link>
               <Nav.Link href="#movies" className="text-light">
@@ -84,10 +81,6 @@ const Header = () => {
               <div className="d-flex align-items-center mx-3">
                 <img height="40" src="/public/avatar.jpg" alt="avatar" />
                 <NavDropdown
-                  img
-                  height="40"
-                  src="/public/avatar.jpg"
-                  alt="avatar"
                   id="genre-dropdown"
                   className="ms-3 bg-dark text-light"
                 >
@@ -102,18 +95,24 @@ const Header = () => {
         </Container>
       </Navbar>
       <Container className="pt-2 mt-1">
-        <div className="d-flex align-items-start">
-          <h2 className="text-light fs-2 fw-bold">Best Movie Sagas</h2>
-          <NavDropdown
-            title="Genres"
-            id="genre-dropdown"
-            className="px-3 py-2 bg-dark text-light d-none d-lg-block"
-          >
-            <NavDropdown.Item href="#">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#">Fantasy</NavDropdown.Item>
-            <NavDropdown.Item href="#">Horror</NavDropdown.Item>
-            <NavDropdown.Item href="#">Sci-Fi</NavDropdown.Item>
-          </NavDropdown>
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex align-items-center">
+            <h2 className="text-light fs-2 fw-bold mb-0">Best Movie Sagas</h2>
+            <NavDropdown
+              title="Genres"
+              id="genre-dropdown"
+              className="px-3 py-2 ms-3 bg-dark text-light d-none d-lg-block border border-light rounded"
+            >
+              <NavDropdown.Item href="#">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#">Fantasy</NavDropdown.Item>
+              <NavDropdown.Item href="#">Horror</NavDropdown.Item>
+              <NavDropdown.Item href="#">Sci-Fi</NavDropdown.Item>
+            </NavDropdown>
+          </div>
+          <div>
+            <Grid className="mx-2" color="white" size={24} />
+            <Grid3x3 className="mx-2" color="white" size={24} />
+          </div>
         </div>
       </Container>
     </header>
